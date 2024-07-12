@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@/components/ui/button';
 import { useChat } from 'ai/react';
 
 export default function Chat() {
@@ -13,13 +14,14 @@ export default function Chat() {
         </div>
       ))}
 
-      <form onSubmit={handleSubmit}>
+      <form className='fixed bottom-0 max-w-md w-full flex gap-2' onSubmit={handleSubmit}>
         <input
-          className="fixed bottom-0 w-full max-w-md p-2 mb-8 border border-gray-300 rounded shadow-xl"
+          className="w-full p-2 mb-8 border border-gray-300 rounded shadow-xl"
           value={input}
           placeholder="Say something..."
           onChange={handleInputChange}
         />
+        <Button type='submit'>Send</Button>
       </form>
     </div>
   );

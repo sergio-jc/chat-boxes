@@ -1,11 +1,15 @@
-import './globals.css';
-import { Inter } from 'next/font/google';
+import "@/styles/globals.css";
+import { Inter as FontSans } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] });
+import { cn } from "@/lib/utils";
 
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 export const metadata = {
-  title: 'Vercel AI SDK - Next.js OpenAI Examples',
-  description: 'Examples of using the Vercel AI SDK with Next.js and OpenAI.',
+  title: "Vercel AI SDK - Next.js OpenAI Examples",
+  description: "Examples of using the Vercel AI SDK with Next.js and OpenAI.",
 };
 
 export default function RootLayout({
@@ -15,7 +19,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={cn(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }
