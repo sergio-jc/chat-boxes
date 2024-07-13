@@ -2,11 +2,13 @@ import "@/styles/globals.css";
 import { Inter as FontSans } from "next/font/google";
 
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
+
 export const metadata = {
   title: "Vercel AI SDK - Next.js OpenAI Examples",
   description: "Examples of using the Vercel AI SDK with Next.js and OpenAI.",
@@ -25,7 +27,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
